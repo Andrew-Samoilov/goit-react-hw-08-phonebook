@@ -15,8 +15,6 @@ export const App = () => {
   ]);
 
   const [filter, setFilter] = useState('');
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
 
   // componentDidUpdate(prevProps, prevState) {
   //   console.log('componentDidUpdate');
