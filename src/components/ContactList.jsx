@@ -17,9 +17,9 @@ export const ContactList = ({ stateContact, onDeleteContact }) => (
     </ul>
 );
  
-ContactList.propTypes = {
-    stateContact: PropTypes.array.isRequired,
-}
+// ContactList.propTypes = {
+//     stateContact: PropTypes.array.isRequired,
+// }
 
 // export const ContactList = ({ stateContact, onDeleteContact }) => (
 //     <ul className={css.listUl}>

@@ -1,7 +1,7 @@
 import React from "react";
 import { nanoid } from 'nanoid'
 import { ContactList } from "./ContactList";
-import ContactForm from "./ContactForm";
+import { ContactForm } from "./ContactForm";
 
 import Filter from "./Filter";
 import css from './ContactForm.module.css'
@@ -9,10 +9,10 @@ import css from './ContactForm.module.css'
 class App extends React.Component {
   state = {
     contacts: [
-      // { id: 'id-1', name: 'Rosie SIIimpson', number: '459-12-56' },
-      // { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-      // { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-      // { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+      { id: 'id-1', name: 'Rosie SIIimpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
     name: '',
@@ -48,11 +48,14 @@ class App extends React.Component {
 
     const normalizedFilter = filter.toLowerCase();
 
+    console.log(filter, contacts, normalizedFilter);
+
     return contacts.filter(
       contact => contact.name.toLowerCase().includes(normalizedFilter));
   }
 
-  formSubmitHandler = data => {
+  formSubmitHandler = (data) => {
+    console.log(data);
     const newData = {
       id: nanoid(4),
       name: data.name,

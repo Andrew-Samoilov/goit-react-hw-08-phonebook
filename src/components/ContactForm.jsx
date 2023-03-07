@@ -1,61 +1,62 @@
 import css from './ContactForm.module.css'
 import PropTypes from 'prop-types';
-import React from "react";
+import React, { useState } from "react";
 
-class ContactForm extends React.Component {
-    state = {
-        name: '',
-        number: '',
-    }
+export const ContactForm = ({ onSubmit }) => {
+    const [name, setName] = useState('');
+    const [number, setNumber] = useState('');
 
-    handleChange = e => {     
-        this.setState({ [e.currentTarget.name]: e.currentTarget.value, });
-    };   
-
-    handleSubmit = e => {   
-        e.preventDefault(); 
-        this.props.onSubmit(this.state);  
-        // console.log(this.state);
+    const handleChange = (e) => {
+        // console.log(e.currentTarget.value);
+        if (e.currentTarget.name === 'name') {
+            setName(e.currentTarget.value);
+        }
+        if (e.currentTarget.name === 'number') {
+            setNumber(e.currentTarget.value);
+        }
     };
 
-    render(){
-        return (
-            <form className={css.contactForm} onSubmit={this.handleSubmit}>
-                <label className={css.contactLabel}>Name
-                    <input
-                        className={css.inputField}
-                        value={this.state.name}
-                        onChange={this.handleChange}
-                        type="text"
-                        name="name"
-                        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                        required/>
-                </label>
-                <label className={css.contactLabel}>Number
-                    <input
-                        className={css.inputField}
-                        value={this.state.number}
-                        onChange={this.handleChange}
-                        type="tel"
-                        name="number"
-                        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                        required
-                    />
-                </label>
-                <button className={css.button} type="submit">Add contact</button>
-            </form>
-        );
-    }
-       
-}
+    const handleSubmit = (e) => {
+        console.log(name, number, e);
+        e.preventDefault();
+       onSubmit({name, number});
+    };
 
-export default ContactForm;
+
+    return (
+        <form className={css.contactForm} onSubmit={handleSubmit}>
+            <label className={css.contactLabel}>Name
+                <input
+                    className={css.inputField}
+                    value={name}
+                    onChange={handleChange}
+                    type="text"
+                    name="name"
+                    pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                    title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                    required />
+            </label>
+            <label className={css.contactLabel}>Number
+                <input
+                    className={css.inputField}
+                    value={number}
+                    onChange={handleChange}
+                    type="tel"
+                    name="number"
+                    pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                    title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                    required
+                />
+            </label>
+            <button className={css.button} type="submit">Add contact</button>
+        </form>
+    );
+
+}
 
 ContactForm.propTypes = {
     state: PropTypes.exact({
-            name: PropTypes.string.isRequired,
-            number: PropTypes.string.isRequired,
-        }), 
-    }
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+    }),
+}
