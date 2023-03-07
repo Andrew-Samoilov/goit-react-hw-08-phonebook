@@ -6,14 +6,24 @@ import { ContactForm } from "./ContactForm";
 import Filter from "./Filter";
 import css from './ContactForm.module.css'
 
-export const App = () => {
-  const [contacts, setContacts] = useState([
+let initialContacts=([
     { id: 'id-1', name: 'Rosie SIIimpson', number: '459-12-56' },
     { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
     { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ]);
+    
+const getInitialContacts = () => {
+  const savedContacts = localStorage.getItem('contacts');
+  if (savedContacts !== null) {
+    const parsedContacts = JSON.parse(savedContacts);
+    return parsedContacts;
+  }
+  return initialContacts;
+};
 
+export const App = () => {
+  const [contacts, setContacts] = useState(getInitialContacts);
   const [filter, setFilter] = useState('');
 
   // componentDidUpdate(prevProps, prevState) {
@@ -22,17 +32,6 @@ export const App = () => {
   //   if (this.state.contacts !== prevState.contacts) {
   //     console.log('update contacts ');
   //     localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-  //   }
-  // }
-
-  // componentDidMount() {
-  //   console.log('componentDidMount');
-
-  //   const contacts = localStorage.getItem('contacts');
-  //   const parsedContacts = JSON.parse(contacts);
-
-  //   if (parsedContacts) {
-  //     this.setState({ contacts: parsedContacts })
   //   }
   // }
 
@@ -68,7 +67,6 @@ export const App = () => {
     setContacts(contacts.filter(contact => contact.id !== contactId));
   };
 
-
   const visibleContacts = getVisibleContacts();
 
   return (
@@ -79,5 +77,4 @@ export const App = () => {
       <Filter value={filter} onChange={changeFilter} />
       <ContactList stateContact={visibleContacts} onDeleteContact={deleteContact} />
     </div>);
-
 }
