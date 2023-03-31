@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import css from './ContactForm.module.css'
-import { getContacts, getStatusFilter } from "../redux/selectors";
+import { getContacts, getFilter } from "../redux/selectors";
 import PropTypes from 'prop-types';
 import ContactListItem from './ContactListItem'
 
@@ -15,7 +15,7 @@ const getVisibleContacts = (contacts, statusFilter) => {
 
 export const ContactList = ({ stateContact, onDeleteContact }) => {
     const contacts = useSelector(getContacts);
-    const statusFilter = useSelector(getStatusFilter);
+    const statusFilter = useSelector(getFilter);
     const visibleContacts = getVisibleContacts(contacts, statusFilter);
 
     return (

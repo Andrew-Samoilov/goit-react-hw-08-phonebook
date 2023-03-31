@@ -12,4 +12,4 @@ export const addContact = createAction("contacts/addContact", text => {
 
 export const deleteContact = createAction("contacts/deleteContact");
 
-export const setStatusFilter = createAction("filters/setStatusFilter");
+export const setFilter = createAction("filters/setFilter");

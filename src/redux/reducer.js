@@ -2,7 +2,7 @@ import { createReducer } from "@reduxjs/toolkit";
 import {
     addContact,
     deleteContact,
-    setStatusFilter,
+    setFilter,
 } from "./actions";
 
 const initialContacts = Object.freeze([
@@ -27,7 +27,7 @@ const filtersInitialState = {
 };
 
 export const filtersReducer = createReducer(filtersInitialState, {
-    [setStatusFilter]: (state, action) => {
+    [setFilter]: (state, action) => {
         state.status = action.payload;
     },
 });

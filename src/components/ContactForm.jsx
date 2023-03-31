@@ -11,7 +11,6 @@ export const ContactForm = () => {
     const [number, setNumber] = useState('');
 
     const handleChange = (e) => {
-        // console.log(e.currentTarget.value);
         if (e.currentTarget.name === 'name') {
             setName(e.currentTarget.value);
         }
@@ -26,7 +25,6 @@ export const ContactForm = () => {
         // onSubmit({ name, number });
         dispatch(addContact({ name, number }));
     };
-
 
     return (
         <form className={css.contactForm} onSubmit={handleSubmit}>
