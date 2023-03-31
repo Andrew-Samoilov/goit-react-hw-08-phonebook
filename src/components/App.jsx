@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { nanoid } from 'nanoid'
+// import { nanoid } from 'nanoid'
 import { ContactList } from "./ContactList";
 import { ContactForm } from "./ContactForm";
 
@@ -23,7 +23,7 @@ const getInitialContacts = () => {
 };
 
 export const App = () => {
-  const [contacts, setContacts] = useState(getInitialContacts);
+  const [contacts,] = useState(getInitialContacts);
   const [filter, setFilter] = useState('');
 
   // componentDidUpdate(prevProps, prevState) {
@@ -48,33 +48,29 @@ export const App = () => {
       contact => contact.name.toLowerCase().includes(normalizedFilter));
   }
 
-  let formSubmitHandler = (data) => {
-    console.log(data);
-    const newData = {
-      id: nanoid(4),
-      name: data.name,
-      number: data.number,
-    }
+  // let formSubmitHandler = (data) => {
+  //   console.log(data);
+  //   const newData = {
+  //     id: nanoid(4),
+  //     name: data.name,
+  //     number: data.number,
+  //   }
 
-    if (contacts.filter(contact => contact.name === data.name).length > 0) {
-      alert(`${data.name} is alredy in contacts.`);
-    } else {
-      setContacts([newData, ...contacts]);
-    }
-  };
-
-  let deleteContact = (contactId) => {
-    setContacts(contacts.filter(contact => contact.id !== contactId));
-  };
+  //   if (contacts.filter(contact => contact.name === data.name).length > 0) {
+  //     alert(`${data.name} is alredy in contacts.`);
+  //   } else {
+  //     setContacts([newData, ...contacts]);
+  //   }
+  // };
 
   const visibleContacts = getVisibleContacts();
 
   return (
     <div className={css.mainDiv}>
       <h1>Phonebook</h1>
-      <ContactForm onSubmit={formSubmitHandler} />
+      <ContactForm/>
       <h2>Contacts</h2>
       <Filter value={filter} onChange={changeFilter} />
-      <ContactList stateContact={visibleContacts} onDeleteContact={deleteContact} />
+      <ContactList stateContact={visibleContacts}/>
     </div>);
 }

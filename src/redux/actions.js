@@ -3,12 +3,13 @@ import { createAction, nanoid } from "@reduxjs/toolkit";
 export const addContact = createAction("contacts/addContact", text => {
     return {
         payload: {
-            text,
+            name: text.name,
+            number: text.number,
             id: nanoid(),
         },
     };
 });
 
-export const deleteContact = createAction("tasks/deleteTask");
+export const deleteContact = createAction("contacts/deleteContact");
 
 export const setStatusFilter = createAction("filters/setStatusFilter");
