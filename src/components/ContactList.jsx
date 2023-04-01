@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import css from './ContactForm.module.css'
 import { getContacts, getFilter } from "../redux/selectors";
-import PropTypes from 'prop-types';
 import ContactListItem from './ContactListItem'
 
 const getVisibleContacts = (contacts, statusFilter) => {
@@ -33,7 +32,3 @@ export const ContactList = ({ stateContact, onDeleteContact }) => {
         </ul>
     )
 };
-
-ContactList.propTypes = {
-    stateContact: PropTypes.array.isRequired,
-}
