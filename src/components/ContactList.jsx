@@ -5,12 +5,13 @@ import PropTypes from 'prop-types';
 import ContactListItem from './ContactListItem'
 
 const getVisibleContacts = (contacts, statusFilter) => {
-    switch (statusFilter) {
-        // case statusFilters.active:
-        //     return contacts.filter(task => !task.completed);
-        default:
-            return contacts;
+    if (statusFilter) {
+        const normalizedFilter = statusFilter.toLowerCase();
+        return contacts.filter(
+            contact => contact.name.toLowerCase().includes(normalizedFilter));
     }
+
+    return contacts;
 };
 
 export const ContactList = ({ stateContact, onDeleteContact }) => {

@@ -1,9 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import {
-    addContact,
-    deleteContact,
-    setFilter,
-} from "./actions";
+import { addContact, deleteContact, setFilter, } from "./actions";
 
 const initialContacts = Object.freeze([
     { id: 'id-1', name: 'Rosie SIIimpson', number: '459-12-56' },
@@ -22,12 +18,12 @@ export const contactsReducer = createReducer(initialContacts, {
     },
 });
 
-const filtersInitialState = {
-    status: initialContacts.all,
+const filterInitialState = {
+    filter: '',
 };
 
-export const filtersReducer = createReducer(filtersInitialState, {
+export const filterReducer = createReducer(filterInitialState, {
     [setFilter]: (state, action) => {
-        state.status = action.payload;
+        state.filter = action.payload;
     },
 });
