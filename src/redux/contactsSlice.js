@@ -7,6 +7,15 @@ const initialContacts = Object.freeze([
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
 ]);
 
+// const getInitialContacts = () => {
+//     const savedContacts = localStorage.getItem('contacts');
+//     if (savedContacts !== null) {
+//         const parsedContacts = JSON.parse(savedContacts);
+//         return parsedContacts;
+//     }
+//     return initialContacts;
+// };
+
 const contactsSlice = createSlice({
     name: "contacts",
     initialState: initialContacts,
