@@ -13,7 +13,7 @@ const getVisibleContacts = (contacts, statusFilter) => {
     return contacts;
 };
 
-export const ContactList = ({ stateContact, onDeleteContact }) => {
+export const ContactList = () => {
     const contacts = useSelector(getContacts);
     const statusFilter = useSelector(getFilter);
     const visibleContacts = getVisibleContacts(contacts, statusFilter);

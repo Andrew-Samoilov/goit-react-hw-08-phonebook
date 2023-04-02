@@ -2,7 +2,7 @@ import css from './ContactForm.module.css'
 import React from "react";
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from "react-redux";
-import { setFilter } from "../redux/actions";
+import { setFilter } from "../redux/filtersSlice";
 import { getFilter } from "../redux/selectors";
 
 export const Filter = () => {
