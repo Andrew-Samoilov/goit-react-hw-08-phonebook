@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "redux/operations";
-import { getError, getIsLoading } from "redux/selectors";
+import { selectError, selectIsLoading } from "redux/selectors";
 
 import { ContactList } from "./ContactList";
 import { ContactForm } from "./ContactForm";
@@ -13,8 +13,8 @@ import css from './ContactForm.module.css'
 export const App = () => {
 
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContacts());

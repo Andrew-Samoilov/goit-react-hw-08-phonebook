@@ -1,7 +1,8 @@
 import css from './ContactForm.module.css'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import React, { useState } from "react";
 import { addContact } from "../redux/operations";
+import { selectContacts } from "../redux/selectors";
 
 export const ContactForm = () => {
     const dispatch = useDispatch();
@@ -18,12 +19,21 @@ export const ContactForm = () => {
         }
     };
 
+    const contacts = useSelector(selectContacts);
+
     const handleSubmit = (e) => {
         // console.log(name, number, e);
-        const form = e.target;
+        const checkName = contacts.find((el) => el.name === name);
+        // console.log(contacts, checkName);
         e.preventDefault();
-        dispatch(addContact({ name, number }));
-        form.reset();
+
+        if (checkName) {
+            alert(`Contact ${name} already exist!`)
+        } else {
+            dispatch(addContact({ name, number }));
+            setName('');
+            setNumber('');
+        }
     };
 
     return (

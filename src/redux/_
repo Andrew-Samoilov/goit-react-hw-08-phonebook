@@ -1,5 +1,0 @@
-if (state.contact.filter(contact => contact.name === action.payload.name).length > 0) {
-  alert(`${state.name} is alredy in contacts.`);
-} else {
-  state.items.push(action.payload);
-}
