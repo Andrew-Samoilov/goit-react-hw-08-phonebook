@@ -1,32 +1,26 @@
 import React from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchContacts } from "redux/operations";
-import { selectError, selectIsLoading } from "redux/selectors";
+import { Routes, Route } from "react-router-dom";
 
-import { ContactList } from "./ContactList";
-import { ContactForm } from "./ContactForm";
-
-import { Filter } from "./Filter";
 import css from './ContactForm.module.css'
 
+import { Home } from "../pages/Home";
+import { Register } from "../pages/Register";
+import { Login } from "../pages/Login";
+import { Contacts } from "../pages/Contacts";
+import { NavigateBar } from "../components/NavigateBar";
+
 export const App = () => {
-
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
     <div className={css.mainDiv}>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      {isLoading && !error && <b>Request in progress...</b>}
-      <ContactList />
+      <div>
+        <NavigateBar />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/contacts" element={<Contacts />} />
+        </Routes>
+      </div>
     </div>);
 }
