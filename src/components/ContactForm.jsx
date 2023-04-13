@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { addContact } from "../redux/operations";
 import { selectContacts } from "../redux/selectors";
 
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+// import Button from '@mui/material/Button';
+// import Box from '@mui/material/Box';
+// import TextField from '@mui/material/TextField';
 
 export const ContactForm = () => {
     const dispatch = useDispatch();
@@ -42,7 +42,7 @@ export const ContactForm = () => {
 
     return (
         <div>
-            <Box
+            {/* <Box
                 component="form"
                 sx={{
                     '& > :not(style)': { m: 1 },
@@ -58,7 +58,7 @@ export const ContactForm = () => {
                 <TextField id="outlined-basic" label="Name" variant="outlined" />
                 <TextField id="outlined-basic" label="Number" variant="outlined" />
                 <Button variant="contained" type="submit">Add contact</Button>
-            </Box>
+            </Box> */}
 
             <form className={css.contactForm} onSubmit={handleSubmit}>
                 <label className={css.contactLabel}>Name
