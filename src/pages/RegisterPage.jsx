@@ -1,8 +1,18 @@
 import { useForm } from "react-hook-form";
+// import { useDispatch } from 'react-redux';
+// import { register } from 'redux/auth/operations';
 
 export const RegisterPage = () => {
+    // const dispatch = useDispatch();
+
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    
+    const onSubmit = data => {
+        console.log(data);
+        // dispatch(data);
+    }
+
+
 
     return (
         <main>
