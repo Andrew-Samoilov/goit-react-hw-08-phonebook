@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import css from '../components/NavigateBar.module.css'
+import css from '../components/navigate/NavigateBar.module.css'
 
 // import Stack from '@mui/material/Stack';
 // import Button from '@mui/material/Button';

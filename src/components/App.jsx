@@ -7,7 +7,7 @@ import { HomePage } from "../pages/Home";
 import { RegisterPage } from "../pages/Register";
 import { LoginPage } from "../pages/Login";
 import { ContactsPage } from "../pages/Contacts";
-import { NavigateBar } from "../components/NavigateBar";
+import { NavigateBar } from "./navigate/NavigateBar";
 
 // const Home = lazy(() => import('../pages/Home'));
 // const Register = lazy(() => import('../pages/Register'));
