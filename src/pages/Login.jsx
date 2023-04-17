@@ -1,8 +1,16 @@
 import { useForm } from "react-hook-form";
+import { useDispatch } from 'react-redux';
+import { logIn } from 'redux/auth/operations';
 
-export const Login = () => {
+export const LoginPage = () => {
+    const dispatch = useDispatch();
+
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+   
+    const onSubmit = data => {
+        console.log(data);
+        dispatch(logIn(data));
+    }
 
     // console.log(`watch`, watch());
     // console.log(`errors`, errors);

@@ -3,10 +3,10 @@ import { Routes, Route } from "react-router-dom";
 
 import css from './ContactForm.module.css'
 
-import { Home } from "../pages/Home";
-import { RegisterPage } from "../pages/RegisterPage";
-import { Login } from "../pages/Login";
-import { Contacts } from "../pages/Contacts";
+import { HomePage } from "../pages/Home";
+import { RegisterPage } from "../pages/Register";
+import { LoginPage } from "../pages/Login";
+import { ContactsPage } from "../pages/Contacts";
 import { NavigateBar } from "../components/NavigateBar";
 
 // const Home = lazy(() => import('../pages/Home'));
@@ -15,16 +15,16 @@ import { NavigateBar } from "../components/NavigateBar";
 export const App = () => {
   return (
     <div className={css.mainDiv}>
-      <div>
+      
         <NavigateBar />
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route index element={<Home />} />
+          <Route path="/" element={<HomePage />} />
+          <Route index element={<HomePage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
         </Routes>
-      </div>
+ 
     </div>);
 }

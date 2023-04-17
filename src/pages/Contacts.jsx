@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectError, selectIsLoading } from "redux/selectors";
-import { fetchContacts } from "redux/operations";
+import { selectError, selectIsLoading } from "redux/contacts/selectors";
+import { fetchContacts } from "redux/contacts/operations";
 
 import { ContactList } from "../components/ContactList";
 import { ContactForm } from "../components/ContactForm";
 import { Filter } from "../components/Filter";
 
-export const Contacts = () => {
+export const ContactsPage = () => {
     const isLoading = useSelector(selectIsLoading);
     const error = useSelector(selectError);
 

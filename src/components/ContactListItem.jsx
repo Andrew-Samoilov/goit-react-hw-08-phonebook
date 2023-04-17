@@ -1,6 +1,6 @@
 import css from './ContactForm.module.css'
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../redux/operations";
+import { deleteContact } from "../redux/contacts/operations";
 
 const ContactListItem = ({ id, name, number }) => {
     const dispatch = useDispatch();
@@ -8,8 +8,8 @@ const ContactListItem = ({ id, name, number }) => {
     const handleDelete = () => dispatch(deleteContact(id));
 
     return (
-        <div className = {css.divItem}>
-            <span>{name}: {number}</span> 
+        <div className={css.divItem}>
+            <span>{name}: {number}</span>
             <button
                 onClick={handleDelete}
                 name={name}
@@ -18,7 +18,7 @@ const ContactListItem = ({ id, name, number }) => {
             </button>
         </div>
     );
-    
+
 };
 
 export default ContactListItem;

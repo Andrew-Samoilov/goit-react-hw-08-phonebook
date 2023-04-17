@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import css from './ContactForm.module.css'
-import { selectContacts, selectFilter } from "../redux/selectors";
+import { selectContacts, selectFilter } from "../redux/contacts/selectors";
 import ContactListItem from './ContactListItem'
 
 const getVisibleContacts = (contacts, statusFilter) => {
@@ -11,7 +11,7 @@ const getVisibleContacts = (contacts, statusFilter) => {
         return contacts.filter(
             contact => contact.name.toLowerCase().includes(normalizedFilter));
     }
-    
+
     return contacts;
 };
 

@@ -2,13 +2,13 @@ import css from './ContactForm.module.css'
 import React from "react";
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from "react-redux";
-import { setFilter } from "../redux/filtersSlice";
-import { selectFilter } from "../redux/selectors";
+import { setFilter } from "../redux/contacts/filtersSlice";
+import { selectFilter } from "../redux/contacts/selectors";
 
 export const Filter = () => {
     const dispatch = useDispatch();
     const filt = useSelector(selectFilter);
-    
+
     const filterChange = (e) => {
         dispatch(setFilter(e.currentTarget.value))
     }

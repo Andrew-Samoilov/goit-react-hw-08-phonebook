@@ -1,22 +1,20 @@
 import { useForm } from "react-hook-form";
-// import { useDispatch } from 'react-redux';
-// import { register } from 'redux/auth/operations';
+import { useDispatch } from 'react-redux';
+import { registerAsync } from 'redux/auth/operations';
 
 export const RegisterPage = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     
     const onSubmit = data => {
         console.log(data);
-        // dispatch(data);
+        dispatch(registerAsync(data));
     }
-
-
 
     return (
         <main>
-            <h1>Register</h1>
+            <h1>Register Page</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                     {...register("name", {
