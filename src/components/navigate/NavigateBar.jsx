@@ -1,20 +1,18 @@
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import css from './NavigateBar.module.css'
-import { logOut } from 'redux/auth/operations';
+import { useAuth } from '../../hooks/useAuth';
+import { UserMenu } from './UserMenu';
+import { AuthNav } from './AuthNav'
 
 export const NavigateBar = () => {
-    const dispatch = useDispatch();
+    const { isLoggedIn } = useAuth();
 
     return (
         <nav className={css.nav}>
+
             <NavLink to="/" end>Home</NavLink>
-            <NavLink to="/register">Register</NavLink>
-            <NavLink to="/login">Login</NavLink>
-            <button type="button" onClick={() => dispatch(logOut())}>
-                Logout
-            </button>
-            <NavLink to="/contacts">Contacts</NavLink>
+            {isLoggedIn ? <UserMenu /> : <AuthNav />}
+           
         </nav>
     );
 }
