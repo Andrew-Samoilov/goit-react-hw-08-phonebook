@@ -10,7 +10,7 @@ export const NavigateBar = () => {
     return (
         <nav className={css.nav}>
 
-            <NavLink to="/" end>Home</NavLink>
+            <NavLink className={css.link} to="/" end>Home</NavLink>
             {isLoggedIn ? <UserMenu /> : <AuthNav />}
            
         </nav>

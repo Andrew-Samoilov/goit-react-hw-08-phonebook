@@ -1,4 +1,15 @@
-.nav{
+.nav {
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.link {
+    /* display: inline-block; */
+    text-decoration: none;
+    padding: 12px;
+}
+
+.btn{
+   margin-left: 15px;
 }
