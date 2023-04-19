@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { deleteContact } from "../redux/contacts/operations";
 
 import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 
 const ContactListItem = ({ id, name, number }) => {
     const dispatch = useDispatch();
@@ -18,13 +18,6 @@ const ContactListItem = ({ id, name, number }) => {
                     onClick={handleDelete}
                 />
             </IconButton>
-
-            {/* <button
-                onClick={handleDelete}
-                name={name}
-                className={css.button}
-                type="button">Delete
-            </button> */}
         </div>
     );
 

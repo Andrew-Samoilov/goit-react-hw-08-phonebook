@@ -4,15 +4,11 @@ import { Routes, Route } from "react-router-dom";
 import { useAuth } from '../hooks/useAuth';
 import { refreshUser } from '../redux/auth/operations';
 
-// import { HomePage } from "../pages/Home";
-// import { RegisterPage } from "../pages/Register";
-// import { LoginPage } from "../pages/Login";
-// import { ContactsPage } from "../pages/Contacts";
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 
 import { Layout } from "./Layout";
-// MyComponent = lazy(() => import('./MyComponent'))
+
 const HomePage = lazy(() => import('../pages/Home'));
 const LoginPage = lazy(() => import('../pages/Login'));
 const RegisterPage = lazy(() => import('../pages/Register'));

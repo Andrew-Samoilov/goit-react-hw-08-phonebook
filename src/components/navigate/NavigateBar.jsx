@@ -1,27 +1,24 @@
-import { NavLink } from "react-router-dom";
-import css from './NavigateBar.module.css'
-
 import { useAuth } from '../../hooks/useAuth';
 import { UserMenu } from './UserMenu';
 import { AuthNav } from './AuthNav'
 
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import Box from '@mui/material/Box';
+
+import { Navigation } from '../navigate/Navigation';
 
 export const NavigateBar = () => {
     const { isLoggedIn } = useAuth();
 
     return (
-        <AppBar position="static">
-            <Toolbar>
-                <nav className={css.nav}>
-
-                    <NavLink className={css.link} to="/" end>Home</NavLink>
-
+        <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="static" sx={{ flexGrow: 1 }}>
+                <Toolbar>
+                    <Navigation />
                     {isLoggedIn ? <UserMenu /> : <AuthNav />}
-
-                </nav>
-            </Toolbar>
-        </AppBar>
+                </Toolbar>
+            </AppBar>
+        </Box>
     );
 }

@@ -1,16 +1,29 @@
-import { NavLink } from 'react-router-dom';
-import css from './NavigateBar.module.css'
+import { Link as NavLink } from 'react-router-dom';
+import Link from '@mui/material/Link';
+import Stack from '@mui/material/Stack';
 
 export const AuthNav = () => {
     return (
-        <div className={css.nav}>
-            <NavLink className={css.link} to="/register">
+        <Stack direction="row" alignItems="baseline" spacing={1}>
+        <nav>
+            <Link
+                color="inherit"
+                underline="hover"
+                sx={{ mr: 1 }}
+                component={NavLink}
+                to="/register">
                 Register
-            </NavLink>
-            <NavLink className={css.link} to="/login">
+            </Link>
+            <Link
+                color="inherit"
+                underline="hover"
+                sx={{ mr: 1 }}
+                component={NavLink}
+                to="/login">
                 Log In
-            </NavLink>
-        </div>
+            </Link>
+        </nav>
+         </Stack >
     );
 };
 

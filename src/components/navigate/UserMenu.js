@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 import { useAuth } from '../../hooks/useAuth';
-import { NavLink } from "react-router-dom";
 
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -12,17 +11,15 @@ export const UserMenu = () => {
 
     return (
         <Stack direction="row" alignItems="baseline" spacing={1}>
-            <NavLink to="/contacts">Contacts</NavLink>
             <p>Welcome, <b>{user.name}!</b> {user.email}</p>
             <Button
                 variant="text"
                 color="inherit"
                 size="small"
+                sx={{ mr: 2 }}
                 onClick={() => dispatch(logOut())}>
                 Logout
             </Button>
         </Stack>
     );
 };
-
-
