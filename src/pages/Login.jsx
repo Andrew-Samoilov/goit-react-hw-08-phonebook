@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 
-export const LoginPage = () => {
+export default function LoginPage() {
     const dispatch = useDispatch();
 
     const { register, handleSubmit, formState: { errors } } = useForm();

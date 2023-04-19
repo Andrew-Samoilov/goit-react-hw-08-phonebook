@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux';
 import { registerAsync } from 'redux/auth/operations';
 
-export const RegisterPage = () => {
+export default function RegisterPage() {
     const dispatch = useDispatch();
 
     const { register, handleSubmit, formState: { errors } } = useForm();

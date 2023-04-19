@@ -7,7 +7,7 @@ import { ContactList } from "../components/ContactList";
 import { ContactForm } from "../components/ContactForm";
 import { Filter } from "../components/Filter";
 
-export const ContactsPage = () => {
+export default function ContactsPage() {
     const isLoading = useSelector(selectIsLoading);
     const error = useSelector(selectError);
 
