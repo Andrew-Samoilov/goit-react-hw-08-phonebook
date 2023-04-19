@@ -13,10 +13,8 @@ const ContactListItem = ({ id, name, number }) => {
     return (
         <div className={css.divItem}>
             <span>{name}: {number}</span>
-            <IconButton aria-label="delete" size="small">
-                <DeleteIcon fontSize="inherit"
-                    onClick={handleDelete}
-                />
+            <IconButton aria-label="delete" size="small" onClick={handleDelete}>
+                <DeleteIcon fontSize="inherit"/>
             </IconButton>
         </div>
     );

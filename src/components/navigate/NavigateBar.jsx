@@ -13,8 +13,8 @@ export const NavigateBar = () => {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" sx={{ flexGrow: 1 }}>
-                <Toolbar>
+            <AppBar position="static">
+                <Toolbar sx={{ justifyContent: 'space-between' }}>
                     <Navigation />
                     {isLoggedIn ? <UserMenu /> : <AuthNav />}
                 </Toolbar>
