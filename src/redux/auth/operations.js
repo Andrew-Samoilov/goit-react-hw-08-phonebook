@@ -18,7 +18,7 @@ const clearAuthHeader = () => {
  * POST @ /users/signup
  * body: { name, email, password }
  */
-export const registerAsync = createAsyncThunk(
+export const register = createAsyncThunk(
     'auth/register',
     async (credentials, thunkAPI) => {
         try {
