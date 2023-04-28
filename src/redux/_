@@ -1,6 +1,0 @@
-import { Link as RouterLink } from 'react-router-dom';
-import Link from '@mui/joy/Link';
-
-<Link component={RouterLink} to="/docs">
-  Read doc
-</Link>;
